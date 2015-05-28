@@ -26,3 +26,15 @@ gem 'jbuilder'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
