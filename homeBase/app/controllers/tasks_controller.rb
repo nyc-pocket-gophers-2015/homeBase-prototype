@@ -1,18 +1,19 @@
-class TaskController < ApplicationController
-	
+class TasksController < ApplicationController
+
 	def index
 		task = Task.all 
-		respond_to do |format|
-			format.json task
-		end
+		render json: task
+		# respond_to do |format|
+		# 	format.json {render json: task}
+		# end
 	end
 
 	def create
 		@task = Task.new(task_params)
 		@task.family_id = current_user.family_id
-		respond_to do |format|
-			if @task.save
-				format.json @task
+		if @task.save
+			respond_to do |format|
+				format.json {render json: @task}
 			end
 		end
 	end
