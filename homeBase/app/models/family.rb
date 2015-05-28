@@ -5,7 +5,7 @@ class Family < ActiveRecord::Base
 	has_many :rewards
 	has_many :tasks
 
-	validates :surname, :email, :password, presence: :true
-	validates :email, uniqueness: :true
+	validates :surname, :email, :password, presence: true
+	validates :email, uniqueness: true
 	validates :password, length: { in: 6..20 }
 end
