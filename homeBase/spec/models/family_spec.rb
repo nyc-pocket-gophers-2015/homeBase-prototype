@@ -11,5 +11,9 @@ describe Family do
       should validate_length_of(:password).
         is_at_least(6).is_at_most(20)
     end
+    it { should have_many(:members) }
+    it { should have_many(:events) }
+    it { should have_many(:rewards) }
+    it { should have_many(:tasks) }
 	end
 end
