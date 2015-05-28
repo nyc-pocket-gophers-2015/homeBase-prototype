@@ -4,6 +4,8 @@ class CreateRewards < ActiveRecord::Migration
     	t.string :name, null: false
     	t.integer :cost, null: false
     	t.string :category, null: false
+    	t.integer :family_id, null: false
+    	t.integer :member_id
 
       t.timestamps null: false
     end
