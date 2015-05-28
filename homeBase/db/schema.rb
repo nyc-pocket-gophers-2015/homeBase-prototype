@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 20150528193057) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string   "role",       null: false
-    t.string   "name",       null: false
-    t.integer  "family_id",  null: false
-    t.integer  "points",     null: false
-    t.string   "color",      null: false
-    t.string   "image_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "role",                   null: false
+    t.string   "name",                   null: false
+    t.integer  "family_id",              null: false
+    t.integer  "points",     default: 0
+    t.string   "color",                  null: false
+    t.string   "img_url",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "rewards", force: :cascade do |t|
@@ -68,14 +68,15 @@ ActiveRecord::Schema.define(version: 20150528193057) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "title",               null: false
-    t.integer  "point_value",         null: false
-    t.integer  "family_id",           null: false
+    t.string   "title",                               null: false
+    t.integer  "point_value",                         null: false
+    t.integer  "family_id",                           null: false
     t.integer  "assigned_member_id"
     t.integer  "completed_member_id"
     t.date     "deadline"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.boolean  "complete?",           default: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end

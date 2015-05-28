@@ -16,97 +16,97 @@ Member.create(name: "Tywin",
 							family_id: 1,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Tyrion",
 							role: "son",
 							family_id: 1,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Cersei",
 							role: "daughter",
 							family_id: 1,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Bob",
 							role: "son",
 							family_id: 1,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Eddard",
 							role: "father",
 							family_id: 2,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Rob",
 							role: "son",
 							family_id: 2,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Jon",
 							role: "son",
 							family_id: 2,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Arya",
 							role: "daughter",
 							family_id: 2,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Dayanares",
 							role: "mother",
 							family_id: 3,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Barry",
 							role: "son",
 							family_id: 3,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Mendel",
 							role: "son",
 							family_id: 3,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Schlomo",
 							role: "son",
 							family_id: 3,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Kris",
 							role: "mother",
 							family_id: 4,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Kourtney",
 							role: "daughter",
 							family_id: 4,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Kylie",
 							role: "daughter",
 							family_id: 4,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 Member.create(name: "Kendall",
 							role: "daughter",
 							family_id: 4,
 							points: 0,
 							color: "red",
-							image_url: "this is a thing")
+							img_url: "this is a thing")
 
 task1 = Task.create(title: "Empty the dishwasher" , point_value: 25, family_id: 1, assigned_member_id: 1, completed_member_id: 1, deadline: Date.today)
 task2 = Task.create(title: "Clean Bedroom", point_value: 10, family_id: 1, assigned_member_id: 2, completed_member_id: 1)
