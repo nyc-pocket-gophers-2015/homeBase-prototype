@@ -5,9 +5,9 @@ class Task < ActiveRecord::Base
 
 	validates :title, :point_value, :family, presence: true
 	validates :point_value, numericality: {only_integer: true}
-	validate :deadline_in_future
+	validate :event_in_future
 	validate :assigned_member_in_family
-	validate :completed_member_in_familys
+	validate :completed_member_in_family
 
 
 	private
