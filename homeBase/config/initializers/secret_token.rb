@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-HomeBase::Application.config.secret_token = '2917be6f2bb0cdf44c147eeb8438b530d561646f63016f339556a6a3547e40923ca39f00049d74925815fadf48d6acb9290dade9dda3785ac6b29a4bbd5feffe'
+HomeBase2::Application.config.secret_token = '388dbc0b1f7fd12c116efa608bd2f6e676337f54522759359da02a982ea09ecb0700fb82b026f44637da6d5fc143bbd30f45a05a54a2a15c92b58f392c7678d3'
