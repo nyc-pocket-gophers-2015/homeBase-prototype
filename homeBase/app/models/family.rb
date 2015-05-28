@@ -3,4 +3,6 @@ class Family < ActiveRecord::Base
 	has_many :events
 	has_many :rewards
 	has_many :tasks
+
+	validates 
 end

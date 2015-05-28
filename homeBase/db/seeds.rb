@@ -25,85 +25,121 @@ Member.create(name: "Tyrion",
 							image_url: "this is a thing")
 Member.create(name: "Cersei",
 							role: "daughter",
-							family_id: ,
+							family_id: 1,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Bob",
+							role: "son",
+							family_id: 1,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Eddard",
+							role: "father",
+							family_id: 2,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Rob",
+							role: "son",
+							family_id: 2,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Jon",
+							role: "son",
+							family_id: 2,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Arya",
+							role: "daughter",
+							family_id: 2,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Dayanares",
+							role: "mother",
+							family_id: 3,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Barry",
+							role: "son",
+							family_id: 3,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Mendel",
+							role: "son",
+							family_id: 3,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Schlomo",
+							role: "son",
+							family_id: 3,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Kris",
+							role: "mother",
+							family_id: 4,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Kourtney",
+							role: "daughter",
+							family_id: 4,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Kylie",
+							role: "daughter",
+							family_id: 4,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
-Member.create(name: "",
-							role: "",
-							family_id: ,
+Member.create(name: "Kendall",
+							role: "daughter",
+							family_id: 4,
 							points: 0,
 							color: "red",
 							image_url: "this is a thing")
+
+task1 = Task.create(title: "Empty the dishwasher" , point_value: 25, family_id: 1, assigned_member_id: 1, completed_member_id: 1, deadline: Date.today)
+task2 = Task.create(title: "Clean Bedroom", point_value: 10, family_id: 1, assigned_member_id: 2, completed_member_id: 1)
+task3 = Task.create(title: "Take out trash" , point_value: 20, family_id: 1, deadline: Date.today)
+
+task4 = Task.create(title: "Sweep Kitchen floor", point_value: 35, family_id: 2, assigned_member_id: 1, completed_member_id: 1)
+task5 = Task.create(title: "Vaccuum living room", point_value: 30, family_id: 2, assigned_member_id: 2, deadline: Date.today + 3)
+task6 = Task.create(title: "Walk the dog", point_value: 20, family_id: 2)
+
+task7 = Task.create(title: "Feed the fish", point_value: 10, family_id: 3, assigned_member_id: 3)
+task8 = Task.create(title: "Fold laundry", point_value: 25, family_id: 3, assigned_member_id: 4, completed_member_id: 4, deadline: Date.today)
+task9 = Task.create(title: "Vaccuum pool", point_value: 50, family_id: 3)
+
+
+task10 = Task.create(title: "Clean countertops", point_value: 20, family_id: 4, assigned_member_id: 1)
+task11 = Task.create(title: "Feed the dog", point_value: 10, family_id: 4, assigned_member_id: 4, completed_member_id: 2)
+task12 = Task.create(title: "Fold laundry", point_value: 25, family_id: 4, deadline: Date.today)
+
+task13 = Task.create(title: "Empty dishwasher", point_value: 20, family_id: 4, assigned_member_id: 1 )
+task14 = Task.create(title: "Pick up all toys", point_value: 15, family_id: 2, assigned_member_id: 4, completed_member_id: 2)
+task15 = Task.create(title: "Dust", point_value: 25, family_id: 3, deadline: Date.today)
+
+
+reward1 = Reward.create(name: "Spinach", category:"Delicious Food", cost: 10, family_id: 1)
+reward2 = Reward.create(name: "Corn", category:"Delicious Food", cost: 20,family_id: 1, member_id: 1)
+reward3 = Reward.create(name: "Tootsie Roll", category:"Delicious Food", cost: 5, family_id: 1, member_id: 2)
+reward4 = Reward.create(name: "Kobe Beef", category:"Delicious Food", cost: 1000, family_id: 1, member_id: 2)
+reward5 = Reward.create(name: "Alaskan King Crab", category:"Delicious Food", cost: 400, family_id: 1)
+reward6 = Reward.create(name: "Ramen Burger", category:"Delicious Food", cost: 100, family_id: 1)
+
+reward7 = Reward.create(name: "MacBook", category:"Technology", cost: 10000, family_id: 2)
+reward8 = Reward.create(name: "PlayStation4", category:"Technology", cost: 5000,family_id: 2)
+reward9 = Reward.create(name: "XBoxOne", category:"Technology", cost: 5000, family_id: 2)
+reward10 = Reward.create(name: "Soda", category:"Delicious Food", cost: 20, family_id: 2)
+reward11 = Reward.create(name: "Shelter", category:"Basic Living", cost: 15, family_id: 2)
+reward12 = Reward.create(name: "Gruel", category:"Basic Living", cost: 20, family_id: 2)

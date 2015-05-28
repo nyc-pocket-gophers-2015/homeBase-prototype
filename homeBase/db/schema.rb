@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150528193057) do
     t.date     "event_date", null: false
     t.time     "event_time", null: false
     t.integer  "member_id"
+    t.integer  "family_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +61,8 @@ ActiveRecord::Schema.define(version: 20150528193057) do
     t.string   "name",       null: false
     t.integer  "cost",       null: false
     t.string   "category",   null: false
+    t.integer  "family_id",  null: false
+    t.integer  "member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150528193057) do
   create_table "tasks", force: :cascade do |t|
     t.string   "title",               null: false
     t.integer  "point_value",         null: false
+    t.integer  "family_id",           null: false
     t.integer  "assigned_member_id"
     t.integer  "completed_member_id"
     t.date     "deadline"
