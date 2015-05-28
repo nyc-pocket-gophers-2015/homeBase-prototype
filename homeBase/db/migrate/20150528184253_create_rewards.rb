@@ -3,7 +3,7 @@ class CreateRewards < ActiveRecord::Migration
     create_table :rewards do |t|
     	t.string :name, null: false
     	t.integer :cost, null: false
-    	t.string :category, null: false
+    	t.string :category
     	t.integer :family_id, null: false
     	t.integer :member_id
 

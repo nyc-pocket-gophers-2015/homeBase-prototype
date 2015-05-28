@@ -6,4 +6,7 @@ class Member < ActiveRecord::Base
 	has_many :assigned_tasks, foreign_key: :assigned_member_id, class_name: "Task"
 	has_many :completed_tasks, foreign_key: :completed_member_id, class_name: "Task"
 	
+	validates :role, :name, :family, :img_url, presence: true
+	validates :points, numericality: {only_integer: true}
+
 end

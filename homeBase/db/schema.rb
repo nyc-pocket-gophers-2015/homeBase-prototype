@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150528193057) do
 
   create_table "medals", force: :cascade do |t|
     t.string   "title",      null: false
-    t.string   "ing_url",    null: false
+    t.string   "img_url",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150528193057) do
   create_table "rewards", force: :cascade do |t|
     t.string   "name",       null: false
     t.integer  "cost",       null: false
-    t.string   "category",   null: false
+    t.string   "category"
     t.integer  "family_id",  null: false
     t.integer  "member_id"
     t.datetime "created_at", null: false
