@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :require_login
+	# before_action :require_login
 
 	def index
 		task = Task.all
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
 
 	def require_login
 		if !current_user
-			render json: {message: "Tanya is catty"}
+			# render json: [{title: "Tanya is catty"}]
 		end
 	end
 end
