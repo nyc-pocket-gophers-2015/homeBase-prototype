@@ -39,14 +39,13 @@
     <div id='tasks'>
     </div>
     <script id="task-list-tpl" type="text/template">
-        <ul>
-            {{#each response}}
+        {{#each this}}
             <li class="tasks">
                 {{title}} : {{point_value}}
             </li>
-            {{/each}}
-        </ul>
+        {{/each}}
     </script>
+        <script type='text/javascript' src="lib/handlebars.js"></script>
         <script type='text/javascript' src="lib/jquery.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </body>

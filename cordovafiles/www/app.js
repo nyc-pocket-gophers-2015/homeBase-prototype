@@ -10,6 +10,7 @@
       console.log(response);
       var template = Handlebars.compile($("#task-list-tpl").html());
       var html = template(response);
+      console.log(html)
       $('#tasks').append(html);
     }).error(function(error){
       console.log(error);
@@ -18,6 +19,7 @@
   getTasks();
 
 }());
+
 
 
 
