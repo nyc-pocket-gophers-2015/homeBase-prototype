@@ -90,7 +90,7 @@
         var TaskView = Backbone.View.extend({
             tagName: 'li',
 
-            my_template: _.template("<li><strong><%= title %></strong> (<%= point_value %>)</li>"),
+            my_template: _.template("<strong><%= title %></strong> (<%= point_value %>)"),
 
             events:{
                 'click li': 'doChore'
@@ -107,7 +107,7 @@
             },
 
             render: function(){
-            return this.my_template(this.model.attributes);
+             return this.$el.html( this.my_template(this.model.toJSON()));
             }
 
 
@@ -126,7 +126,7 @@
                     this.$el.html(this.my_template());
 
                     this.collection.each(function(task){
-                        console.log(task)
+                     
                         var choreView = new TaskView({model: task});
 
                         this.$el.append(choreView.render());
