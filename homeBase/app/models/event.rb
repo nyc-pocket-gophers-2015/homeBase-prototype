@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
 	private
 
 		def event_in_future
-			if event_date < Date.today
+			if (event_date && event_date < Date.today)
 				errors.add(:event_date, "has already happened")
 			end
 		end

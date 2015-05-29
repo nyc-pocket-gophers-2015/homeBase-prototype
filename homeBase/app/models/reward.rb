@@ -2,7 +2,7 @@ class Reward < ActiveRecord::Base
 	belongs_to :family
 	belongs_to :member
 
-	validates :name, :cost, :family, presence: :true
+	validates :name, :cost, :family, presence: true
 	validates :cost, numericality: {only_integer: true, greater_than: 0}
 	validate :member_in_family
 
