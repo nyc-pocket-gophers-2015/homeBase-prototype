@@ -29,7 +29,7 @@ FactoryGirl.define do
 
   factory :reward do
     name          { Faker::Lorem.sentence }
-    cost          { Faker::Number.digit }
+    cost          { Faker::Number.number(3) }
     association   :family, factory: :family
   end
 
