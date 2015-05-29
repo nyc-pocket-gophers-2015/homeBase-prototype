@@ -1,5 +1,5 @@
 class RewardsController < ApplicationController
-
+	before_action :require_login
 	def index
 		rewards = Reward.where(family_id: 1)
 		render json: rewards
@@ -16,7 +16,7 @@ class RewardsController < ApplicationController
 		reward = Reward.find_by(id: params[:id])
 		if reward.update_attributes(reward_params)
 			flash[:success] = "The reward was changed"
-			render json: reward 
+			render json: reward
 		else
 			#flash[:error] = "The reward was not changed. Please try again."
 			#
@@ -38,5 +38,11 @@ class RewardsController < ApplicationController
 	private
 	def reward_params
 		params.require(:reward).permit :name, :cost, :category
+	end
+
+	def require_login
+		if !current_user
+			flash[:error] = "You must be logged in."
+		end
 	end
 end

@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
+	before_action :require_login
 
 	def index
-		task = Task.all 
+		task = Task.all
 		render json: task
 	end
 
@@ -19,5 +20,11 @@ class TasksController < ApplicationController
 	private
 	def task_params
 		params.require(:answer).permit :title, :point_value, :assigned_member_id, :deadline
+	end
+
+	def require_login
+		if !current_user
+			flash[:error] = "You must be logged in."
+		end
 	end
 end
