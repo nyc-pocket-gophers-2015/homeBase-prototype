@@ -3,9 +3,6 @@ class TasksController < ApplicationController
 	def index
 		task = Task.all 
 		render json: task
-		# respond_to do |format|
-		# 	format.json {render json: task}
-		# end
 	end
 
 	def create
