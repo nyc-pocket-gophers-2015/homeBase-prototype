@@ -1,2 +1,2 @@
-cd project
+before_install: cd project
 language: ruby
