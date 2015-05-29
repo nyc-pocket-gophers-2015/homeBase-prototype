@@ -1,11 +1,12 @@
 class MembersController < ApplicationController
+	before_action :require_login
 
 	def index
 		members = Member.where(family_id: params[:family_id])
 		render json: members
 	end
 
-	def create 
+	def create
 		member = Member.new(member_params)
 		member.family_id = params[:family_id]
 		#current_user.family.id
@@ -28,8 +29,15 @@ class MembersController < ApplicationController
 			#can't delete someone not in your family.
 	end
 
-	private 
+	private
 	def member_params
 		params.require(:member).permit :role, :name, :img_url
 	end
+
+	def require_login
+		if !current_user
+			flash[:error] = "You must be logged in."
+		end
+	end
+
 end
