@@ -10,9 +10,7 @@ class TasksController < ApplicationController
 		@task = Task.new(task_params)
 		@task.family_id = current_user.id
 		if @task.save
-			respond_to do |format|
-				format.json {render json: @task}
-			end
+				render json: @task
 		end
 	end
 
@@ -32,7 +30,7 @@ class TasksController < ApplicationController
 
 	def require_login
 		if !current_user
-			flash[:error] = "You must be logged in."
+			render json: {message: "Tanya is catty"}
 		end
 	end
 end
