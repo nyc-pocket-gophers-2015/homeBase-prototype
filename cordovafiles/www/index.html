@@ -19,6 +19,11 @@
 -->
 <html>
     <head>
+    <script type='text/javascript' src="lib/handlebars.js"></script>
+     <script type='text/javascript' src="lib/jquery.js"></script>
+     <script type='text/javascript' src="lib/underscore.js"></script>
+    <script type='text/javascript' src="lib/backbone.js"></script>
+     <script type="text/javascript" src="app.js"></script>
       <!--
         Customize this policy to fit your own app's needs. For more guidance, see:
             https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
@@ -36,9 +41,149 @@
         <title>homeBase</title>
     </head>
     <body>
+    Put list here
+    <div id='container'>
     <div id='tasks'>
     </div>
-    <script id="task-list-tpl" type="text/template">
+    <div>
+
+    <script>
+    //<models>
+
+    var Task = Backbone.Model.extend({
+        defaults:{
+            title:"do something",
+            point_value: 10
+        },
+
+        initialize: function(){
+            console.log("creating a new Backbone task model")
+
+        }
+
+    })
+
+
+    var doIt = new Task({title:"do it", point_value:100})
+
+
+    var TaskList = Backbone.Collection.extend({
+        model: Task,
+        url: "http://localhost:3000/tasks",
+
+        firstTen: function(){
+            return this.select(function(task){
+                return task.id <= 10
+                });
+            }
+        })
+
+
+
+        var tasklist = new TaskList();
+        tasklist.fetch();
+        console.log(tasklist.length)
+    //
+
+
+   
+        var TaskView = Backbone.View.extend({
+            tagName: 'li',
+
+            my_template: _.template("<li><strong><%= title %></strong> (<%= point_value %>)</li>"),
+
+            events:{
+                'click li': 'doChore'
+            },
+
+            doChore: function(event){
+                this.model.set({title: this.model.get('title') + ' is complete'})
+
+            },
+
+
+            initialize: function(){
+            this.render();
+            },
+
+            render: function(){
+            return this.my_template(this.model.attributes);
+            }
+
+
+            });
+
+            var taskview = new TaskView({model: doIt});
+
+            
+            var TaskListView = Backbone.View.extend({
+                el: '#tasks',
+                tagname: "ul",
+                className:"tasklist",
+                my_template: _.template($('#tasks').html()),
+
+                render: function(){
+                    this.$el.html(this.my_template());
+
+                    this.collection.each(function(task){
+                        console.log(task)
+                        var choreView = new TaskView({model: task});
+
+                        this.$el.append(choreView.render());
+
+                    }, this);
+
+                    return this;
+                }
+
+            })
+
+
+            var tasklistView = new TaskListView({collection: tasklist});
+            tasklist.fetch().done(function(){
+                tasklistView.render();
+            });
+
+            ///
+
+            var TaskListRouter = Backbone.Router.extend({
+                routes: {
+                    "/":  "index"
+                },
+
+                initialize: function(){
+                    this.container = $('#container');
+                },
+
+                index: function(){
+                    $('#container').append(tasklistView.el)
+
+
+                
+
+                }
+
+
+
+
+
+
+
+
+            })
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+   <!--  <script id="task-list-tpl" type="text/template">
         <ul>
             {{#each this}}
             <li class="tasks">
@@ -46,9 +191,8 @@
             </li>
             {{/each}}
         </ul>
-    </script>
-        <script type='text/javascript' src="lib/handlebars.js"></script>
-        <script type='text/javascript' src="lib/jquery.js"></script>
-        <script type="text/javascript" src="app.js"></script>
+    </script> -->
+
+        
     </body>
 </html>
