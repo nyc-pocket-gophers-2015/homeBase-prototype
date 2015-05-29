@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-	before_action :require_login
+	# before_action :require_login
 
 	def index
 		task = Task.all
@@ -8,11 +8,17 @@ class TasksController < ApplicationController
 
 	def create
 		@task = Task.new(task_params)
-		@task.family_id = current_user.family_id
+		@task.family_id = current_user.id
 		if @task.save
-			respond_to do |format|
-				format.json {render json: @task}
-			end
+				render json: @task
+		end
+	end
+
+	def destroy
+		@task = Task.find_by(id: params[:id])
+		if @task.destroy
+			all_tasks = Task.all
+			render json: all_tasks
 		end
 	end
 
@@ -24,7 +30,7 @@ class TasksController < ApplicationController
 
 	def require_login
 		if !current_user
-			flash[:error] = "You must be logged in."
+			# render json: [{title: "Tanya is catty"}]
 		end
 	end
 end
