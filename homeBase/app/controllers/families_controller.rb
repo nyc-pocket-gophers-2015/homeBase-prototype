@@ -1,10 +1,10 @@
 class FamiliesController < ApplicationController
 
   def index
-  	family = Family.find_by(id: 1)
+  	family = Family.find_by(id: current_user.id)
   	members = family.members
   	render json: members
-  end	
+  end
 
   def create
   	new_family = Family.new(family_params)
@@ -15,12 +15,8 @@ class FamiliesController < ApplicationController
   end
 
   def destroy
-  	family = Family.find_by(id: params[:id])
-  	fam_members = Member.where(family_id: params[:id])
-  	fam_rewards = Reward.where(family_id: params[:id])
-  	fam_tasks = Task.where(family_id: params[:id])
-  	fam_events = Event.where(family_id: params[:id])
-  	if family.destroy && fam_members.destroy && fam_events.destroy && fam_tasks.destroy && fam_rewards.destroy
+  	family = Family.find_by(id: current_user.id)
+  	if family.destroy
   		flash[:success] = "Your ENTIRE account has been deleted"
   	else
   	end

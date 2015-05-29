@@ -2,13 +2,13 @@ class MembersController < ApplicationController
 	before_action :require_login
 
 	def index
-		members = Member.where(family_id: params[:family_id])
+		members = Member.where(family_id: current_user.id)
 		render json: members
 	end
 
 	def create
 		member = Member.new(member_params)
-		member.family_id = params[:family_id]
+		member.family_id = current_user.id
 		#current_user.family.id
 		if member.save
 			member.color = member.assign_color
@@ -18,7 +18,7 @@ class MembersController < ApplicationController
 	end
 
 	def destroy
-		if current_user.family == member.family
+		if current_user == member.family
 			member = Member.find_by(id: params[:id])
 			if member.destroy
 				all_members = Member.all
@@ -27,6 +27,7 @@ class MembersController < ApplicationController
 			end
 		else
 			#can't delete someone not in your family.
+		end
 	end
 
 	private

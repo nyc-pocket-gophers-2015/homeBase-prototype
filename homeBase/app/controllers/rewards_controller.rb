@@ -1,13 +1,13 @@
 class RewardsController < ApplicationController
 	before_action :require_login
 	def index
-		rewards = Reward.where(family_id: 1)
+		rewards = Reward.where(family_id: current_user.id)
 		render json: rewards
 	end
 
 	def create
 		@reward = Reward.new(reward_params)
-		@reward.family_id = 1
+		@reward.family_id = current_user.id
 		render json: @reward
 	end
 
@@ -25,7 +25,7 @@ class RewardsController < ApplicationController
 
 	def destroy
 		reward = Reward.find_by(id: params[:id])
-		if current_user.family == reward.family
+		if current_user == reward.family
 			if reward.destroy
 				all_rewards = Reward.all
 				render json: all_rewards
