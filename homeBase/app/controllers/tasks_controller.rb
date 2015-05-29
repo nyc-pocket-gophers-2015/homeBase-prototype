@@ -8,11 +8,19 @@ class TasksController < ApplicationController
 
 	def create
 		@task = Task.new(task_params)
-		@task.family_id = current_user.family_id
+		@task.family_id = current_user.id
 		if @task.save
 			respond_to do |format|
 				format.json {render json: @task}
 			end
+		end
+	end
+
+	def destroy
+		@task = Task.find_by(id: params[:id])
+		if @task.destroy
+			all_tasks = Task.all
+			render json: all_tasks
 		end
 	end
 
