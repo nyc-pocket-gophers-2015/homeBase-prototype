@@ -17,13 +17,15 @@ class MembersController < ApplicationController
 	end
 
 	def destroy
-		if current_user.family.id
-		member = Member.find_by(id: params[:id])
-		if member.destroy
-			all_members = Member.all
-			render json: all_members
+		if current_user.family == member.family
+			member = Member.find_by(id: params[:id])
+			if member.destroy
+				all_members = Member.all
+				render json: all_members
+			else
+			end
 		else
-		end
+			#can't delete someone not in your family.
 	end
 
 	private 

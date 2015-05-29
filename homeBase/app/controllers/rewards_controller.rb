@@ -25,9 +25,12 @@ class RewardsController < ApplicationController
 
 	def destroy
 		reward = Reward.find_by(id: params[:id])
-		if reward.destroy
-			all_rewards = Reward.all
-			render json: all_rewards
+		if current_user.family == reward.family
+			if reward.destroy
+				all_rewards = Reward.all
+				render json: all_rewards
+			else
+			end
 		else
 		end
 	end
