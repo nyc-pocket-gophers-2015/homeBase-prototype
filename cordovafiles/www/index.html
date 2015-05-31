@@ -36,7 +36,7 @@
         <title>homeBase</title>
     </head>
     <body>
-    <div id='tasks'>
+    <div id='content'>
     </div>
     <script id="task-list-tpl" type="text/template">
         <ul>
@@ -47,8 +47,35 @@
             {{/each}}
         </ul>
     </script>
-        <script type='text/javascript' src="lib/handlebars.js"></script>
-        <script type='text/javascript' src="lib/jquery.js"></script>
-        <script type="text/javascript" src="app.js"></script>
-    </body>
+        <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/underscore-min.js"></script>
+
+    <script src="js/family.js"></script>
+    <script src="js/member.js"></script>
+
+            <script src="js/family_list_view.js"></script>
+                <script src="js/member_view.js"></script>
+                <script type="text/javascript" src="app.js"></script>
+
+
+
+
+    <script type="text/template" id="family-list-template">
+        <div class="top-menu">
+          <h1>Members</h1>
+        </div>
+        <div id="members">
+        </div>
+      </script>
+
+      <script type="text/template" id="members-row-template">
+        <div class="row">
+          <h3><<= title >></h3>
+          <p class="dim"><<= short_desc >><p/>
+        </div>
+      </script>
+
+
+            </body>
 </html>
