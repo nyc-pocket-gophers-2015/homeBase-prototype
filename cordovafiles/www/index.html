@@ -42,5 +42,42 @@
     </script>
 
 
+
+    <script id="member-template" type="text/x-handlebars-template">
+        <div class="member-container">
+            <p class="member-name">{{name}}</p>
+            <div class="clear"></div>
+            <table class="tasks-container">
+                <tr class='button-container'>
+                {{#assignedTasks}}
+                    <td class="task-d">
+                        <button class="title">{{title}}</button>
+                    </td>
+                    <td class="point-d">
+                        <button class="point_value">{{point_value}}</button>
+                    </td>
+                </tr>
+                {{/assignedTasks}}
+                {{#completedTasks}}
+                    <td class="task-d">
+                        <button class="title">{{user}}</button>
+                    </td>
+                    <td class="point-d">
+                        <button class="point_value">{{point_value}}</button>
+                    </td>
+                </tr>
+                {{/completedTasks}}
+            </table>
+        </div>
+        </script>
+
+
+    <script id="task-template" type="text/x-handlebars-template">
+        <tr class='button-container'>
+        <td class="task-d"><button class="title">{{title}}</button></td><td class="point-d"><button class="point_value">{{point_value}}</button></td></tr>
+    </script>
+
+
+
     </body>
 </html>

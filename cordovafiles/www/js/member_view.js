@@ -1,7 +1,8 @@
 function MemberRowView(member){
   this.member = member;
+  console.log(this.member)
   this.$el = $("<div></div>");
-  this.template = Handlebars.compile($("#members-row-template").html());
+  this.template = Handlebars.compile($("#member-template").html());
 }
 
 MemberRowView.prototype.render = function(){
@@ -12,7 +13,8 @@ MemberRowView.prototype.render = function(){
 
 MemberRowView.prototype.templateData = function() {
   return {
-    title: this.member.name,
-    points: this.member.points
+    name: this.member.name,
+    assignedTasks: this.member.assignedTasks,
+    completedTasks: this.member.completedTasks
   };
 };
