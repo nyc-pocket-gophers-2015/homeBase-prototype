@@ -6,6 +6,9 @@
 </head>
 
 <body>
+    <button id="reward-button">Reward Page</button>
+    <button id="home-button">Main Page</button>
+    <button id="task-button">Task Page</button>
     <div id='content'>
     </div>
 
@@ -19,14 +22,14 @@
     <script src="js/reward_list_view.js"></script>
     <script src="js/reward_view.js"></script>
     <script src="js/family_list_view.js"></script>
-    <script src="js/member_view.js"></script>
+    <script src="js/task_member_view.js"></script>
     <script src="js/family.js"></script>
     <script src="js/member.js"></script>
-
     <!-- App Script -->
     <script type="text/javascript" src="app.js"></script>
 
-    <!-- Family View Template -->
+
+    <!-- Task View Template -->
     <script type="text/x-handlebars-template" id="family-list-template">
         <div class="top-menu">
             <h1> Welcome Back, Hoy Es {{date}}</h1>
@@ -47,10 +50,10 @@
         </div>
     </script>
 
-    <!-- Member View Template -->
-    <script id="member-template" type="text/x-handlebars-template">
-        <div class="member-container">
-            <p class="member-name">{{name}}</p>
+    <!-- Task Member View Template -->
+    <script id="task-member-template" type="text/x-handlebars-template">
+        <div class="task-member-container">
+            <p class="task-member-name">{{name}}</p>
             <div class="clear"></div>
             <table class="tasks-container">
                 <tr class='button-container'>

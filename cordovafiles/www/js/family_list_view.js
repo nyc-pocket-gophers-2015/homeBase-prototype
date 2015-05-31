@@ -8,8 +8,8 @@ FamilyListView.prototype.render = function(){
   this.$el.html(this.template(this.familyTemplateData()));
   (this.family.members).forEach(function(member){
     var currentMember = new Member(member)
-    var singleMemberView = new MemberView(currentMember);
-    this.$el.find("#members").append(singleMemberView.render());
+    var singleTaskMemberView = new TaskMemberView(currentMember);
+    this.$el.find("#members").append(singleTaskMemberView.render());
   }, this);
 
   return this.$el;
