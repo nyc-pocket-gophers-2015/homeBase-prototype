@@ -1,7 +1,8 @@
 function Member(memberParams){
   this.role = memberParams.role;
   this.name = memberParams.name;
-  this.points = memberParams.points;
+  this.badges = memberParams.badges
+  this.taskPoints = memberParams.task_points || 0;
   this.color = memberParams.color;
   this.imgUrl = memberParams.imgUrl;
   this.pendingRewards = memberParams.pendingRewards;

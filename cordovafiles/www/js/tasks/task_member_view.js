@@ -1,6 +1,5 @@
 function TaskMemberView(member){
   this.member = member;
-  console.log(this.member)
   this.$el = $("<div></div>");
   this.template = Handlebars.compile($("#task-member-template").html());
 }

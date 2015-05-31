@@ -19,28 +19,35 @@
     <script src="js/rewards/reward.js"></script>
     <script src="js/rewards/reward_list_view.js"></script>
     <script src="js/rewards/reward_view.js"></script>
+    <script src="js/family/main_family_list_view.js"></script>
+    <script src="js/members/main_member_view.js"></script>
     <script src="js/tasks/task_family_list_view.js"></script>
     <script src="js/tasks/task_member_view.js"></script>
     <script src="js/family/family.js"></script>
     <script src="js/members/member.js"></script>
     <!-- App Script -->
     <script type="text/javascript" src="app.js"></script>
-    <!-- Family View Template -->
-    <script id="memberMedal-template" type="text/x-handlebars-template">
-        <h2 class="memberMain">
-            {{role}}{{name}}
-        <span class="points">{{task_points}}</span>
-        </h2>
-
-        {{#badges}}
-        <h3 class="memberBadge"> * {{name}} *</h3>
-        {{/badges}}
-
-        {{#pendingRewards}}
-        <div style="text-align:center">
-        <div class="pendingReward"> - {{name}} - </div>:p</div>
-        {{/pendingRewards}}
+    <!-- Main Family View Template -->
+    <script id="main-list-template" type="text/x-handlebars-template">
+      <h1>House of {{surname}}</h1>
+      <div id="members">
+      </div>
     </script>
+    <!-- Main Member View Template -->
+    <script id="main-member-template" type="text/x-handlebars-template">
+    <h2 class="memberMain">{{role}} {{name}}</h2>
+    {{taskPoints}}
+    {{#badges}}
+        <h3 class="memberBadge"> * {{name}} *</h3>
+    {{/badges}}
+    {{#pendingRewards}}
+        <div style="text-align:center"><div class="pendingReward">  - {{name}} -  </div>:p</div>
+    {{/pendingRewards}}
+    </script>
+
+
+
+
     <!-- Task View Template -->
     <script type="text/x-handlebars-template" id="task-list-template">
         <div class="top-menu">

@@ -22,9 +22,9 @@ Family.getMainPage = function(event){
     event.preventDefault();
     Family.getFamily().done(function(family){
       userFamily = new Family(family)
-      var taskFamilyListView = new TaskFamilyListView(userFamily);
-      var taskFamilyListHtml = taskFamilyListView.render();
-      homeBaseApp.$container.html(familyListHtml);
+      var mainFamilyListView = new MainFamilyListView(userFamily);
+      var mainFamilyListHtml = mainFamilyListView.render();
+      homeBaseApp.$container.html(mainFamilyListHtml);
     });
 }
 
