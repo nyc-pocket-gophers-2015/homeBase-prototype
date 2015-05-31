@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>homeBase</title>
-    </head>
-    <body>
 
+<head>
+    <title>homeBase</title>
+</head>
 
+<body>
     <div id='content'>
     </div>
-
 
     <!-- Library Scripts -->
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
@@ -24,28 +23,25 @@
     <!-- App Script -->
     <script type="text/javascript" src="app.js"></script>
 
-
     <!-- Family View Template -->
     <script type="text/x-handlebars-template" id="family-list-template">
         <div class="top-menu">
-            <h2> Welcome Back, Hoy Es {{date}}</h2>
-            <h1>House of {{familyName}}</h1>
+            <h1> Welcome Back, Hoy Es {{date}}</h1>
             <h3>Members</h3>
         </div>
         <div id="members">
         </div>
         <div class="family-unassigned-tasks">
-            <h1>Unassigned Tasks</h1>
-        {{#unassignedTasks}}
-        <td class="task-d">
-            <button class="title">{{title}}</button>
-        </td>
-        <td class="point-d">
-            <button class="point_value">{{point_value}}</button>
-        </td>
-        {{/unassignedTasks}}
+            <h1>Unassigned Tasks</h1> {{#unassignedTasks}}
+            <td class="task-d">
+                <button class="title">{{title}}</button>
+            </td>
+            <td class="point-d">
+                <button class="point_value">{{point_value}}</button>
+            </td>
+            {{/unassignedTasks}}
         </div>
-      </script>
+    </script>
 
     <!-- Member View Template -->
     <script id="member-template" type="text/x-handlebars-template">
@@ -54,7 +50,7 @@
             <div class="clear"></div>
             <table class="tasks-container">
                 <tr class='button-container'>
-                {{#assignedTasks}}
+                    {{#assignedTasks}}
                     <td class="task-d">
                         <button class="title">{{title}}</button>
                     </td>
@@ -62,21 +58,34 @@
                         <button class="point_value">{{point_value}}</button>
                     </td>
                 </tr>
-                {{/assignedTasks}}
-                {{#completedTasks}}
-                    <td class="task-d">
-                        <button class="title">{{user}}</button>
-                    </td>
-                    <td class="point-d">
-                        <button class="point_value">{{point_value}}</button>
-                    </td>
+                {{/assignedTasks}} {{#completedTasks}}
+                <td class="task-d">
+                    <button class="title">{{user}}</button>
+                </td>
+                <td class="point-d">
+                    <button class="point_value">{{point_value}}</button>
+                </td>
                 </tr>
                 {{/completedTasks}}
             </table>
         </div>
     </script>
 
+    <!-- Reward View Template -->
+    <script id="reward-template" type="text/x-handlebars-template">
+        <tr class='button-container'>
+            <td class="reward-d">
+                <button class="name">{{name}}</button>
+            </td>
+            <td class="cost-d">
+                <button class="cost">{{cost}}</button>
+            </td>
+            <td class="cost-d">
+                <button class="cost">{{cost}}</button>
+            </td>
+            <td class="t-cat">{{category}}</td>
+        </tr>
+    </script>
+</body>
 
-
-    </body>
 </html>

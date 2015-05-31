@@ -18,7 +18,6 @@ FamilyListView.prototype.render = function(){
 FamilyListView.prototype.familyTemplateData = function() {
   return {
     date: new Date().toDateString(),
-    familyName: this.family.surname,
     unassignedTasks: this.family.unassignedTasks
   };
 };
