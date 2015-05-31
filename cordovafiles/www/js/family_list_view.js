@@ -1,6 +1,6 @@
 function FamilyListView(family){
   this.members = family;
-  this.template = _.template($("#family-list-template").html());
+  this.template = Handlebars.compile($("#family-list-template").html());
   this.$el = $("<div></div>");
 }
 

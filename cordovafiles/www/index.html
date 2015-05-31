@@ -1,67 +1,32 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
-      <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css"> -->
         <title>homeBase</title>
     </head>
     <body>
+
+
     <div id='content'>
     </div>
-    <script id="task-list-tpl" type="text/template">
-        <ul>
-            {{#each this}}
-            <li class="tasks">
-                {{title}} : {{point_value}}
-            </li>
-            {{/each}}
-        </ul>
-    </script>
-        <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/underscore-min.js"></script>
 
+
+    <!-- Library Scripts -->
+    <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script src="lib/handlebars.js"></script>
+
+    <!-- View Scripts -->
     <script src="js/family.js"></script>
     <script src="js/member.js"></script>
+    <script src="js/family_list_view.js"></script>
+    <script src="js/member_view.js"></script>
 
-            <script src="js/family_list_view.js"></script>
-                <script src="js/member_view.js"></script>
-                <script type="text/javascript" src="app.js"></script>
+    <!-- App Script -->
+    <script type="text/javascript" src="app.js"></script>
 
 
-
-
-    <script type="text/template" id="family-list-template">
+    <!-- View Templates -->
+    <script type="text/x-handlebars-template" id="family-list-template">
         <div class="top-menu">
           <h1>Members</h1>
         </div>
@@ -69,13 +34,13 @@
         </div>
       </script>
 
-      <script type="text/template" id="members-row-template">
+    <script type="text/x-handlebars-template" id="members-row-template">
         <div class="row">
-          <h3><%= title %></h3>
-          <p class="dim"><%= points %><p/>
+          <h3> {{title}} </h3>
+          <p class="dim"> {{points}} <p/>
         </div>
-      </script>
+    </script>
 
 
-            </body>
+    </body>
 </html>
