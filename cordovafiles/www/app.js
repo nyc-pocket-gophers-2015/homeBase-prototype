@@ -13,9 +13,9 @@ var homeBaseApp = {
   allMembers: function(){
     Family.getFamily().done(function(family){
       userFamily = new Family(family)
-      var familyListView = new FamilyListView(userFamily);
-      var familyListHtml = familyListView.render();
-      this.displayHtml(familyListHtml);
+      var taskFamilyListView = new TaskFamilyListView(userFamily);
+      var taskFamilyListHtml = taskFamilyListView.render();
+      this.displayHtml(taskFamilyListHtml);
     }.bind(this));
   }
 }

@@ -1,11 +1,11 @@
-function FamilyListView(family){
+function TaskFamilyListView(family){
   this.family = family;
-  this.template = Handlebars.compile($("#family-list-template").html());
+  this.template = Handlebars.compile($("#task-list-template").html());
   this.$el = $("<div></div>");
 }
 
-FamilyListView.prototype.render = function(){
-  this.$el.html(this.template(this.familyTemplateData()));
+TaskFamilyListView.prototype.render = function(){
+  this.$el.html(this.template(this.taskFamilyTemplateData()));
   (this.family.members).forEach(function(member){
     var currentMember = new Member(member)
     var singleTaskMemberView = new TaskMemberView(currentMember);
@@ -15,7 +15,7 @@ FamilyListView.prototype.render = function(){
   return this.$el;
 };
 
-FamilyListView.prototype.familyTemplateData = function() {
+TaskFamilyListView.prototype.taskFamilyTemplateData = function() {
   return {
     date: new Date().toDateString(),
     unassignedTasks: this.family.unassignedTasks

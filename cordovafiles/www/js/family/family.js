@@ -12,9 +12,9 @@ Family.getTaskPage = function(event){
     event.preventDefault();
     Family.getFamily().done(function(family){
       userFamily = new Family(family)
-      var familyListView = new FamilyListView(userFamily);
-      var familyListHtml = familyListView.render();
-      homeBaseApp.$container.html(familyListHtml);
+      var taskFamilyListView = new TaskFamilyListView(userFamily);
+      var taskFamilyListHtml = taskFamilyListView.render();
+      homeBaseApp.$container.html(taskFamilyListHtml);
     });
 };
 
@@ -22,8 +22,8 @@ Family.getMainPage = function(event){
     event.preventDefault();
     Family.getFamily().done(function(family){
       userFamily = new Family(family)
-      var familyListView = new FamilyListView(userFamily);
-      var familyListHtml = familyListView.render();
+      var taskFamilyListView = new TaskFamilyListView(userFamily);
+      var taskFamilyListHtml = taskFamilyListView.render();
       homeBaseApp.$container.html(familyListHtml);
     });
 }

@@ -11,26 +11,38 @@
     <button id="task-button">Task Page</button>
     <div id='content'>
     </div>
-
     <!-- Library Scripts -->
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script src="lib/handlebars.js"></script>
-
     <!-- View Scripts -->
-    <script src="js/reward.js"></script>
-    <script src="js/reward_list_view.js"></script>
-    <script src="js/reward_view.js"></script>
-    <script src="js/family_list_view.js"></script>
-    <script src="js/task_member_view.js"></script>
-    <script src="js/family.js"></script>
-    <script src="js/member.js"></script>
+    <script src="js/rewards/reward.js"></script>
+    <script src="js/rewards/reward_list_view.js"></script>
+    <script src="js/rewards/reward_view.js"></script>
+    <script src="js/tasks/task_family_list_view.js"></script>
+    <script src="js/tasks/task_member_view.js"></script>
+    <script src="js/family/family.js"></script>
+    <script src="js/members/member.js"></script>
     <!-- App Script -->
     <script type="text/javascript" src="app.js"></script>
+    <!-- Family View Template -->
+    <script id="memberMedal-template" type="text/x-handlebars-template">
+        <h2 class="memberMain">
+            {{role}}{{name}}
+        <span class="points">{{task_points}}</span>
+        </h2>
 
+        {{#badges}}
+        <h3 class="memberBadge"> * {{name}} *</h3>
+        {{/badges}}
 
+        {{#pendingRewards}}
+        <div style="text-align:center">
+        <div class="pendingReward"> - {{name}} - </div>:p</div>
+        {{/pendingRewards}}
+    </script>
     <!-- Task View Template -->
-    <script type="text/x-handlebars-template" id="family-list-template">
+    <script type="text/x-handlebars-template" id="task-list-template">
         <div class="top-menu">
             <h1> Welcome Back, Hoy Es {{date}}</h1>
             <h3>Members</h3>
@@ -38,8 +50,7 @@
         <div id="members">
         </div>
         <div class="family-unassigned-tasks">
-            <h1>Unassigned Tasks</h1>
-            {{#unassignedTasks}}
+            <h1>Unassigned Tasks</h1> {{#unassignedTasks}}
             <td class="task-d">
                 <button class="title">{{title}}</button>
             </td>
@@ -49,7 +60,6 @@
             {{/unassignedTasks}}
         </div>
     </script>
-
     <!-- Task Member View Template -->
     <script id="task-member-template" type="text/x-handlebars-template">
         <div class="task-member-container">
@@ -77,7 +87,6 @@
             </table>
         </div>
     </script>
-
     <!-- Reward List View Template -->
     <script type="text/x-handlebars-template" id="reward-list-template">
         <div class="top-menu">
@@ -86,18 +95,21 @@
         <div id="rewards">
         </div>
     </script>
-
     <!-- Reward View Template -->
     <script id="reward-template" type="text/x-handlebars-template">
-        <tr class='button-container'>
-            <td class="reward-d">
-                <button class="name">{{name}}</button>
-            </td>
-            <td class="cost-d">
-                <button class="cost">{{cost}}</button>
-            </td>
-            <td class="t-cat">{{category}}</td>
-        </tr>
+        <div class="reward-box">
+            <h4 class="rewardMember">{{name}}<span style="color:#3498db">{{task_points}}</span></h4>
+            <tr class='button-container'>
+                <td class="reward-d">
+                    <button class="name">{{name}}</button>
+                </td>
+                <td class="cost-d">
+                    <button class="cost">{{cost}}</button>
+                </td>
+                <td class="t-cat"></td>
+            </tr>
+            <br>
+        </div>
     </script>
 </body>
 
