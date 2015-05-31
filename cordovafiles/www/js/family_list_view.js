@@ -6,7 +6,6 @@ function FamilyListView(family){
 
 FamilyListView.prototype.render = function(){
   this.$el.html(this.template());
-  console.log(this.members.members);
   (this.members.members).forEach(function(member){
     var memberView = new MemberRowView(member);
     this.$el.find("#members").append(memberView.render());

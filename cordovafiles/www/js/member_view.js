@@ -1,7 +1,7 @@
 function MemberRowView(member){
   this.member = member;
-  this.template = _.template($("#members-row-template").html());
   this.$el = $("<div></div>");
+  this.template = _.template($("#members-row-template").html());
 }
 
 MemberRowView.prototype.render = function(){
