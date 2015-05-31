@@ -1,6 +1,5 @@
 function FamilyListView(family){
   this.family = family;
-  console.log(this.family)
   this.template = Handlebars.compile($("#family-list-template").html());
   this.$el = $("<div></div>");
 }
@@ -8,7 +7,8 @@ function FamilyListView(family){
 FamilyListView.prototype.render = function(){
   this.$el.html(this.template(this.familyTemplateData()));
   (this.family.members).forEach(function(member){
-    var singleMemberView = new MemberView(member);
+    var currentMember = new Member(member)
+    var singleMemberView = new MemberView(currentMember);
     this.$el.find("#members").append(singleMemberView.render());
   }, this);
 
@@ -18,7 +18,7 @@ FamilyListView.prototype.render = function(){
 FamilyListView.prototype.familyTemplateData = function() {
   return {
     date: new Date().toDateString(),
-    familyName: this.family.familyName,
+    familyName: this.family.surname,
     unassignedTasks: this.family.unassignedTasks
   };
 };
