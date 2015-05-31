@@ -4,9 +4,7 @@ Router = {
     return $.get("http://localhost:3000/families.json");
   },
 
-  getFamilyRewards: function(){
+  getMemberRewards: function(){
     return $.get("http://localhost:3000/rewards.json")
   },
-
-  get
 }

@@ -15,10 +15,13 @@
     <script src="lib/handlebars.js"></script>
 
     <!-- View Scripts -->
-    <script src="js/family.js"></script>
-    <script src="js/member.js"></script>
+    <script src="js/reward.js"></script>
+    <script src="js/reward_list_view.js"></script>
+    <script src="js/reward_view.js"></script>
     <script src="js/family_list_view.js"></script>
     <script src="js/member_view.js"></script>
+    <script src="js/family.js"></script>
+    <script src="js/member.js"></script>
 
     <!-- App Script -->
     <script type="text/javascript" src="app.js"></script>
@@ -32,7 +35,8 @@
         <div id="members">
         </div>
         <div class="family-unassigned-tasks">
-            <h1>Unassigned Tasks</h1> {{#unassignedTasks}}
+            <h1>Unassigned Tasks</h1>
+            {{#unassignedTasks}}
             <td class="task-d">
                 <button class="title">{{title}}</button>
             </td>
@@ -71,14 +75,20 @@
         </div>
     </script>
 
+    <!-- Reward List View Template -->
+    <script type="text/x-handlebars-template" id="reward-list-template">
+        <div class="top-menu">
+            <h3>Rewards</h3>
+        </div>
+        <div id="rewards">
+        </div>
+    </script>
+
     <!-- Reward View Template -->
     <script id="reward-template" type="text/x-handlebars-template">
         <tr class='button-container'>
             <td class="reward-d">
                 <button class="name">{{name}}</button>
-            </td>
-            <td class="cost-d">
-                <button class="cost">{{cost}}</button>
             </td>
             <td class="cost-d">
                 <button class="cost">{{cost}}</button>
