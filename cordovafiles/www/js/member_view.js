@@ -1,17 +1,17 @@
-function MemberRowView(member){
+function MemberView(member){
   this.member = member;
   console.log(this.member)
   this.$el = $("<div></div>");
   this.template = Handlebars.compile($("#member-template").html());
 }
 
-MemberRowView.prototype.render = function(){
-  this.$el.html(this.template(this.templateData()));
+MemberView.prototype.render = function(){
+  this.$el.html(this.template(this.memberTemplateData()));
 
   return this.$el;
 };
 
-MemberRowView.prototype.templateData = function() {
+MemberView.prototype.memberTemplateData = function() {
   return {
     name: this.member.name,
     assignedTasks: this.member.assignedTasks,
