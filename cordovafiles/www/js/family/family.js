@@ -5,7 +5,11 @@ function Family(familyParams){
 }
 
 Family.getFamily = function(){
-  return $.get('http://10.0.0.53:3000/families.json');
+  return $.ajax({
+    method: "get",
+    crossDomain: true,
+    url: "http://10.0.0.53:3000/families.json"
+  })
 }
 
 Family.getTaskPage = function(event){

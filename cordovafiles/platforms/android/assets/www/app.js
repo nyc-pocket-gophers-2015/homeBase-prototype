@@ -14,7 +14,6 @@ var homeBaseApp = {
       userFamily = new Family(family);
       var taskFamilyListView = new TaskFamilyListView(userFamily);
       var taskFamilyListHtml = taskFamilyListView.render();
-      alert(taskFamilyListHtml);
       this.displayHtml(taskFamilyListHtml);
     }.bind(this)).error(function(error){
       alert("Something went wrong.");

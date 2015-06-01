@@ -5,17 +5,43 @@
     <title>homeBase</title>
 </head>
 
+
+
 <body>
-    <button id="reward-button">Reward Page</button>
-    <button id="home-button">Main Page</button>
-    <button id="task-button">Task Page</button>
+
+    <form id="login-form" name="login-form" method="post" action="http://10.0.0.53:3000/login">
+        <label for="password">Email:</label>
+        <input type="text" name="email" id="email" class="txtfield" tabindex="2">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+        <input type="submit" value="Submit">
+    </form>
+   <!--  <div id="loginmodal">
+    <h1>Parent Login</h1>
+    <form id="loginform" name="loginform" method="post" action="http://10.0.0.53:3000/sessions/admin">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+        <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+    </form>
+    </div> -->
+
+    <div id='nav-bar'>
+        <button id="reward-button">Reward Page</button>
+        <button id="home-button">Main Page</button>
+        <button id="task-button">Task Page</button>
+    </div>
+
+
+
     <div id='content'>
     </div>
     <!-- Library Scripts -->
     <script type="text/javascript" src="js/modernizr-2.6.2.min.js"></script>
     <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
     <script src="lib/handlebars.js"></script>
     <!-- View Scripts -->
+    <script src="js/admin/login.js"></script>
     <script src="js/rewards/reward.js"></script>
     <script src="js/rewards/reward_list_view.js"></script>
     <script src="js/rewards/reward_view.js"></script>
